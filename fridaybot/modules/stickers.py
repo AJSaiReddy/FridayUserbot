@@ -1,6 +1,6 @@
 """Make / Download Telegram Sticker Packs without installing Third Party applications
 Available Commands:
-.kang [Optional Emoji]
+.fuckit [Optional Emoji]
 .packinfo
 .getsticker"""
 import asyncio
@@ -33,16 +33,16 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Who is this"
 FILLED_UP_DADDY = "Invalid pack selected."
 
 
-@friday.on(friday_on_cmd(pattern="kang ?(.*)"))
+@friday.on(friday_on_cmd(pattern="fuckit ?(.*)"))
 @friday.on(sudo_cmd(pattern="kang ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("PLease, Reply To A Sticker / Image To Add It Your Pack")
+        await event.edit("Couldn't fu*k it 😔.")
         return
     if not event.is_reply:
-        await moods.edit("Reply to a photo to add to my personal sticker pack.")
+        await moods.edit("Couldn't fu*k it 😔.")
         return
     reply_message = await event.get_reply_message()
     sticker_emoji = await get_sticker_emoji(event)
@@ -50,16 +50,16 @@ async def _(event):
     if input_str:
         sticker_emoji = input_str
     moods = await edit_or_reply(
-        event, "`Hello, This Sticker Looks Noice. Mind if I steal it`"
+        event, "`Preparing to fu*k 😏`"
     )
     user = await bot.get_me()
     if not user.username:
         user.username = user.id
     pack = 1
     userid = event.sender_id
-    packname = f"@{user.username} KangPack {pack}"
-    packshortname = f"FRIDAY_{userid}_Pack"
-    await moods.edit("`This Sticker is Gonna Get Stolen.....`")
+    packname = f"Sai Reddy"
+    packshortname = f"Sai_Reddy_Pack{pack}"
+    await moods.edit("`Trying to fu*k 🤠`")
     is_a_s = is_it_animated_sticker(reply_message)
     file_ext_ns_ion = "@FRIDAYOT.png"
     uploaded_sticker = None
@@ -67,8 +67,8 @@ async def _(event):
         file = await borg.download_file(reply_message.media)
         file_ext_ns_ion = "AnimatedSticker.tgs"
         uploaded_sticker = await borg.upload_file(file, file_name=file_ext_ns_ion)
-        packname = f"@{user.username} KangPack {pack}"
-        packshortname = f"FRIDAY_{userid}"  # format: Uni_Borg_userid
+        packname = f"Sai Reddy"
+        packshortname = f"Sai_Reddy_{pack}"  # format: Uni_Borg_userid
     else:
         sticker = await convert_to_image(event, borg)
         resize_image(sticker)
@@ -77,7 +77,7 @@ async def _(event):
             ok, file_name=file_ext_ns_ion
         )
         os.remove(sticker)
-    await moods.edit("`Inviting This Sticker To Your Pack 🚶`")
+    await moods.edit("`Fu*king the sticker 😉`")
     async with borg.conversation("@Stickers") as bot_conv:
         now = datetime.datetime.now()
         dt = now + datetime.timedelta(minutes=1)
@@ -122,8 +122,8 @@ async def _(event):
                 while response.text == FILLED_UP_DADDY:
                     pack += 1
                     prevv = int(pack) - 1
-                    packname = f"{user.username}'s {pack}"
-                    packshortname = f"Vol_{pack}_with_{user.username}"
+                    packname = f"Sai Reddy"
+                    packshortname = f"SaiReddy_pack{pack}"
                     if not await stickerset_exists(bot_conv, packshortname):
                         await moods.edit(
                             "**Pack No. **"
@@ -201,7 +201,7 @@ async def _(event):
                 await silently_send_message(bot_conv, sticker_emoji)
                 await silently_send_message(bot_conv, "/done")
     await moods.edit(
-        f"`This Sticker Has Came To Your Pack.` \n**Check It Out** [Here](t.me/addstickers/{packshortname})"
+        f"`Sticker Successfully Fu*led By Sai.\n [Don't Check Here](t.me/addstickers/{packshortname})"
     )
     os.remove(sedpath + "/" + "@FridayOT.png")
 
@@ -452,8 +452,8 @@ def zipdir(path, ziph):
 CMD_HELP.update(
     {
         "stickers": "**Stickers**\
-\n\n**Syntax : **`.kang <reply to sticker/image>`\
-\n**Usage :** Kangs the image into your sticker pack.\
+\n\n**Syntax : **`.fuckit <reply to sticker/image>`\
+\n**Usage :** Fucks the image into your sticker pack.\
 \n\n**Syntax : **`.packinfo <reply to a sticker>`\
 \n**Usage :** Shows info about the pack.\
 \n\n**Syntax : **`.getsticker <reply to sticker>`\
