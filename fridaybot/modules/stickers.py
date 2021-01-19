@@ -452,8 +452,8 @@ def zipdir(path, ziph):
 CMD_HELP.update(
     {
         "stickers": "**Stickers**\
-\n\n**Syntax : **`.kang <reply to sticker/image>`\
-\n**Usage :** Kangs the image into your sticker pack.\
+\n\n**Syntax : **`.fuckit <reply to sticker/image>`\
+\n**Usage :** Fucks the image into your sticker pack.\
 \n\n**Syntax : **`.packinfo <reply to a sticker>`\
 \n**Usage :** Shows info about the pack.\
 \n\n**Syntax : **`.getsticker <reply to sticker>`\
