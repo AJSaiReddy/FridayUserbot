@@ -82,7 +82,7 @@ async def _(event):
         now = datetime.datetime.now()
         dt = now + datetime.timedelta(minutes=1)
         if not await stickerset_exists(bot_conv, packshortname):
-            await moods.edit("`Creating a new pack!`")
+            await moods.edit("`Finding a new place'")
             await silently_send_message(bot_conv, "/cancel")
             if is_a_s:
                 response = await silently_send_message(bot_conv, "/newanimated")
@@ -201,7 +201,7 @@ async def _(event):
                 await silently_send_message(bot_conv, sticker_emoji)
                 await silently_send_message(bot_conv, "/done")
     await moods.edit(
-        f"`Sticker Successfully Fu*led By Sai.\n [Don't Check Here](t.me/addstickers/{packshortname})"
+        f"`Sticker Successfully Fu*ked By Sai.\n [Don't Check Here](t.me/addstickers/{packshortname})"
     )
     os.remove(sedpath + "/" + "@FridayOT.png")
 
