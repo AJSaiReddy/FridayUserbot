@@ -39,7 +39,7 @@ async def _(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("Couldn't fu*k it 😔.")
+        await event.edit("Couldn't fu*k it sed 😔.")
         return
     if not event.is_reply:
         await moods.edit("Couldn't fu*k it 😔.")
